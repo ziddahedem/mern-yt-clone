@@ -44,28 +44,28 @@ const Main = styled.div`
   }
 `;
 
-const Thumbnails = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  width: 100%;
-`;
+// const Thumbnails = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   gap: 1rem;
+//   width: 100%;
+// `;
 
-const Thumbnail = styled.div`
-  height: 10rem;
-  background-color: #f6f2f1;
-  text-align: center;
+// const Thumbnail = styled.div`
+//   height: 10rem;
+//   background-color: #f6f2f1;
+//   text-align: center;
 
-  img {
-    height: 100%;
-    object-fit: contain;
-  }
+//   img {
+//     height: 100%;
+//     object-fit: contain;
+//   }
 
-  @media (max-width: 650px) {
-    width: 6rem;
-    height: 6rem;
-  }
-`;
+//   @media (max-width: 650px) {
+//     width: 6rem;
+//     height: 6rem;
+//   }
+// `;
 const CatLabel = styled.span`
   display: inline-block;
   font-size: 1.5rem;
@@ -181,20 +181,6 @@ const ProductDetailsScreen = ({ match, histroy }) => {
             <Main>
               <img src={product.image} alt='' />
             </Main>
-            {/* <Thumbnails>
-              <Thumbnail>
-                <img src={product.image} alt='' />
-              </Thumbnail>
-              <Thumbnail>
-                <img src={product.image} alt='' />
-              </Thumbnail>
-              <Thumbnail>
-                <img src={product.image} alt='' />
-              </Thumbnail>
-              <Thumbnail>
-                <img src={product.image} alt='' />
-              </Thumbnail>
-            </Thumbnails> */}
           </Left>
 
           <Right>
