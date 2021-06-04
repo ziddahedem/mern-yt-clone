@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const reviewSchema = mongoose.Schema(
   {
@@ -7,13 +7,13 @@ const reviewSchema = mongoose.Schema(
     comment: { type: String, required: true },
   },
   { timestamps: true }
-)
+);
 
 const productSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     name: {
@@ -58,8 +58,8 @@ const productSchema = mongoose.Schema(
     },
   },
   { timestamps: true }
-)
+);
 
-const Product = mongoose.model('Product', productSchema)
+const Product = mongoose.model("Product", productSchema);
 
-export default Product
+export default Product;

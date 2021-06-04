@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-import Rating from '../components/Rating'
-import { listProductDetails } from '../actions/productActions'
-import CustomLoader from '../components/CustomLoader'
-import Alert from '../components/Alert'
+import Rating from "../components/Rating";
+import { listProductDetails } from "../actions/productActions";
+import CustomLoader from "../components/CustomLoader";
+import Alert from "../components/Alert";
 
 const ProductDetails = styled.div`
   display: grid;
@@ -18,7 +18,7 @@ const ProductDetails = styled.div`
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-`
+`;
 
 const Left = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ const Left = styled.div`
     width: 100%;
     height: 45rem;
   }
-`
+`;
 
 const Main = styled.div`
   text-align: center;
@@ -42,14 +42,14 @@ const Main = styled.div`
     height: 100%;
     width: 100%;
   }
-`
+`;
 
 const Thumbnails = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   width: 100%;
-`
+`;
 
 const Thumbnail = styled.div`
   height: 10rem;
@@ -65,12 +65,12 @@ const Thumbnail = styled.div`
     width: 6rem;
     height: 6rem;
   }
-`
+`;
 const CatLabel = styled.span`
   display: inline-block;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-`
+`;
 
 const Right = styled.div`
   div {
@@ -81,7 +81,7 @@ const Right = styled.div`
   @media (max-width: 650px) {
     margin-top: 5rem;
   }
-`
+`;
 
 export const Form = styled.form`
   margin-bottom: 2rem;
@@ -101,10 +101,10 @@ export const Form = styled.form`
       pointer-events: none;
     }
   }
-`
+`;
 
 export const Select = styled.select`
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   width: 6rem;
   padding: 0.3rem;
   border: 1px solid var(--grey1);
@@ -112,19 +112,19 @@ export const Select = styled.select`
   outline: none;
   font-weight: 600;
   cursor: pointer;
-`
+`;
 
 const Title = styled.h1`
   font-size: 4rem;
   line-height: 1.2;
   margin-bottom: 2rem;
-`
+`;
 const Price = styled.div`
   font-size: 600;
   font-size: 2rem;
   color: var(--primary);
   margin-bottom: 2rem;
-`
+`;
 
 const LinkWrapper = styled(Link)`
   display: inline-block;
@@ -140,34 +140,34 @@ const LinkWrapper = styled(Link)`
     color: var(--white);
     background: var(--grey1);
   }
-`
+`;
 
 const Heading = styled.h3`
   text-transform: uppercase;
   margin-bottom: 1rem;
-`
+`;
 
 const InStock = styled.span`
   display: block;
   margin-bottom: 2rem;
-`
+`;
 
 const Discription = styled.p`
   color: var(--grey1);
-`
+`;
 
 const ProductDetailsScreen = ({ match, histroy }) => {
-  const [qty, setQty] = useState(1)
+  const [qty, setQty] = useState(1);
 
-  const dispatch = useDispatch()
-  const ProductDetail = useSelector(state => state.productDetails)
+  const dispatch = useDispatch();
+  const ProductDetail = useSelector((state) => state.productDetails);
 
-  const { loading, error, product } = ProductDetail
+  const { loading, error, product } = ProductDetail;
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-    dispatch(listProductDetails(match.params.id))
-  }, [dispatch, match])
+    window.scrollTo(0, 0);
+    dispatch(listProductDetails(match.params.id));
+  }, [dispatch, match]);
 
   return (
     <div>
@@ -181,7 +181,7 @@ const ProductDetailsScreen = ({ match, histroy }) => {
             <Main>
               <img src={product.image} alt='' />
             </Main>
-            <Thumbnails>
+            {/* <Thumbnails>
               <Thumbnail>
                 <img src={product.image} alt='' />
               </Thumbnail>
@@ -194,7 +194,7 @@ const ProductDetailsScreen = ({ match, histroy }) => {
               <Thumbnail>
                 <img src={product.image} alt='' />
               </Thumbnail>
-            </Thumbnails>
+            </Thumbnails> */}
           </Left>
 
           <Right>
@@ -205,8 +205,8 @@ const ProductDetailsScreen = ({ match, histroy }) => {
             {product.countInStock > 0 && (
               <Form>
                 <div>
-                  <Select value={qty} onChange={e => setQty(e.target.value)}>
-                    {[...Array(product.countInStock).keys()].map(x => (
+                  <Select value={qty} onChange={(e) => setQty(e.target.value)}>
+                    {[...Array(product.countInStock).keys()].map((x) => (
                       <option key={x + 1} value={x + 1}>
                         {x + 1}
                       </option>
@@ -219,13 +219,13 @@ const ProductDetailsScreen = ({ match, histroy }) => {
               </Form>
             )}
             <InStock>
-              Status: {product.countInStock === 0 ? 'Out of Stock' : 'In Stock'}
+              Status: {product.countInStock === 0 ? "Out of Stock" : "In Stock"}
             </InStock>
             {product.countInStock === 0 ? (
               <LinkWrapper
                 to='#'
                 className='disabled'
-                onClick={event => event.preventDefault()}
+                onClick={(event) => event.preventDefault()}
               >
                 Add To Cart
               </LinkWrapper>
@@ -241,7 +241,7 @@ const ProductDetailsScreen = ({ match, histroy }) => {
         </ProductDetails>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetailsScreen
+export default ProductDetailsScreen;

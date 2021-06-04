@@ -1,10 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import CollectionData from './CollectionData'
-import Title from '../Title'
+import CollectionData from "./CollectionData";
+import Title from "../Title";
 
 const Wrapper = styled.div`
   display: grid;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
-`
+`;
 
 const CollectionTitle = styled.h3`
   background-color: rgba(0, 0, 0, 0.8);
@@ -35,7 +35,7 @@ const CollectionTitle = styled.h3`
     padding: 0.7rem 1.4rem;
     font-size: 1.6rem;
   }
-`
+`;
 
 const CollectionItem = styled.div`
   overflow: hidden;
@@ -44,7 +44,7 @@ const CollectionItem = styled.div`
 
   img {
     object-fit: cover;
-    height: 100%;
+    height: 300px;
     width: 100%;
     transition: all 500ms ease-in-out;
   }
@@ -59,7 +59,7 @@ const CollectionItem = styled.div`
   }
 
   ::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -76,7 +76,7 @@ const CollectionItem = styled.div`
     visibility: visible;
     opacity: 1;
   }
-`
+`;
 
 const CollectionContent = styled.div`
   position: absolute;
@@ -86,7 +86,7 @@ const CollectionContent = styled.div`
   color: var(--white);
   text-align: center;
   z-index: 3;
-`
+`;
 
 const CollectionLink = styled(Link)`
   transition: all 300ms ease-in-out;
@@ -95,7 +95,7 @@ const CollectionLink = styled(Link)`
   :hover {
     color: var(--primary);
   }
-`
+`;
 
 const Collection = () => {
   return (
@@ -107,7 +107,7 @@ const Collection = () => {
       <Wrapper className='container'>
         {CollectionData.map((item, index) => (
           <CollectionItem key={index}>
-            <img src={item.url} alt={item.label} />
+            <img className='image' src={item.url} alt={item.label} />
             <CollectionContent>
               <CollectionTitle>
                 <Link to={item.path}>{item.label}</Link>
@@ -118,7 +118,7 @@ const Collection = () => {
         ))}
       </Wrapper>
     </section>
-  )
-}
+  );
+};
 
-export default Collection
+export default Collection;

@@ -1,13 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   height: calc(100vh - 6.5rem);
   background-color: var(--primary);
   position: relative;
   overflow: hidden;
-`
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
 
 const Left = styled.div`
   color: var(--white);
@@ -21,7 +27,7 @@ const Left = styled.div`
   @media (max-width: 567px) {
     top: 25%;
   }
-`
+`;
 
 const Right = styled.div`
   position: absolute;
@@ -50,7 +56,7 @@ const Right = styled.div`
       height: 30rem;
     }
   }
-`
+`;
 
 const SubTitle = styled.span`
   display: inline-block;
@@ -63,7 +69,7 @@ const SubTitle = styled.span`
   @media (max-width: 567px) {
     font-size: 1.6rem;
   }
-`
+`;
 const Title = styled.h1`
   font-size: 4.5rem;
   margin-bottom: 1rem;
@@ -75,13 +81,13 @@ const Title = styled.h1`
   @media (max-width: 567px) {
     font-size: 3rem;
   }
-`
+`;
 
 const Small = styled.small`
   display: block;
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
-`
+`;
 
 const HeroLink = styled(Link)`
   display: inline-block;
@@ -96,7 +102,7 @@ const HeroLink = styled(Link)`
     color: var(--primary);
     background-color: var(--white);
   }
-`
+`;
 
 const Hero = () => {
   return (
@@ -108,11 +114,9 @@ const Hero = () => {
         <HeroLink to='/'>View Collection</HeroLink>
       </Left>
 
-      <Right>
-        <img src='/images/hero.png' alt='' />
-      </Right>
+      <img src='/images/hero-1.jpeg' alt='' />
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

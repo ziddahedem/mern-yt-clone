@@ -27,7 +27,7 @@ html {
 
 body,
 input {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
   background-color: var(--white);
   color: var(--black);
@@ -75,6 +75,12 @@ li {
 }
 
 .section {
-  padding: 10rem 0 5rem 0;
+  padding-top: 5rem;
   overflow: hidden;
+}
+
+.sliderItem {
+  width: 100px;
+  height: 100px;
+  background-color: red;
 }
